@@ -1,27 +1,37 @@
+
 import 'dart:io';
 
-double? safeDivide(num numerator, num? denominator) {
-  if (denominator == null || denominator == 0) {
-    print("Cannot divide by zero!");
-    return null;
+
+safeDivide(int? a,int? b)
+{
+  if( b==null || b==0)
+  {
+    print("safeDivid($a,$b)->Output:cannot divide by zero");
   }
-  return numerator / denominator;
+  else if(a==null)
+  {
+    print("safeDivid($a,$b)->Output:0");
+  }
+  else
+  {
+    print("safeDivid($a,$b)->Output:${a/b}");
+  }
 }
 
 void main() {
-  try {
-    stdout.write("Enter the numerator: ");
-    num numerator = num.parse(stdin.readLineSync()!);
 
-    stdout.write("Enter the denominator: ");
-    num? denominator = num.tryParse(stdin.readLineSync()!);
+    
 
-    double? result = safeDivide(numerator, denominator);
 
-    if (result != null) {
-      print("Result: $result");
-    }
-  } catch (e) {
-    print("Invalid input! Please enter numeric values.");
-  }
+     print("Enter The First Number:");
+      String? input = stdin.readLineSync()!;
+      int? a =int.tryParse(input ?? '');
+
+       print("Enter The Second Number:");
+      input = stdin.readLineSync()!;
+      int? b =int.tryParse(input ?? '');
+
+    safeDivide(a, b);
+
+
 }
